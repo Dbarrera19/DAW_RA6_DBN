@@ -1,0 +1,57 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+*.swp
+*.swo
+
+# Dependencias de Composer
+/vendor/
+composer.lock
+
+# Caché de phpDocumentor
+/docs/phpdoc-cache/
+
+# Documentación generada (opcional, comentar si se quiere versionarla)
+# /docs/html/
+
+# Archivos de configuración local
+.env.local
+.env.*.php
+
+# Logs
+*.log
+
+# Variables de sesión de PHP
+/tmp/
+session.tmp
+
+# Archivos de base de datos
+*.sqlite
+*.db
+*.sqlite3
+
+# Archivos temporales
+*~
+*.tmp
+*.bak
+
+# Carpetas de editor
+.sublime-project
+.sublime-workspace
+
+# Archivos de configuración privados (SIN PONER NUNCA CONTRASEÑAS)
+config/local.php
+config/private/
+
+# Node modules (si se usa npm/node)
+node_modules/
+npm-debug.log
+
+# IDE Settings
+.phpstorm.meta.php
+_ide_helper.php
+
+# OS files
+.gitkeep

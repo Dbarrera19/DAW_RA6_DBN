@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor>
+    <title>Aplicación PHP Documentada</title>
+    <parser>
+        <target>docs/phpdoc-cache</target>
+        <markers>
+            <item>@todo</item>
+            <item>@fixme</item>
+            <item>@deprecated</item>
+        </markers>
+    </parser>
+    <transformer>
+        <target>docs/html</target>
+        <transformations>
+            <transformation>
+                <name>responsive-twig</name>
+            </transformation>
+        </transformations>
+    </transformer>
+    <files>
+        <directory>src</directory>
+        <directory>index.php</directory>
+        <ignore-patterns>
+            <ignore-pattern>*/tests/*</ignore-pattern>
+            <ignore-pattern>*/vendor/*</ignore-pattern>
+        </ignore-patterns>
+    </files>
+</phpdocumentor>

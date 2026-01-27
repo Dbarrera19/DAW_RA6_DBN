@@ -1,0 +1,11 @@
+{
+    "name": "Aplicación PHP Documentada",
+    "description": "Aplicación web PHP con documentación completa, control de versiones y CI/CD",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "^3.0"
+    }
+}
