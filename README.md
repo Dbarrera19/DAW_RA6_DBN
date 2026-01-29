@@ -1,51 +1,52 @@
-# 📋 Aplicación PHP Documentada con CI/CD
+# 📋 Proyecto DBN - Aplicación PHP Documentada con CI/CD
 
-Aplicación web PHP sencilla con documentación completa, control de versiones con GitHub y configuración de integración continua mediante GitHub Actions.
+Aplicación web PHP documentada con PHPDoc, control de versiones en GitHub y Integración Continua con GitHub Actions.
 
 ## 📋 Índice
 
+- [Descripción](#descripción)
 - [Características](#características)
 - [Requisitos](#requisitos)
 - [Instalación](#instalación)
-- [Uso](#uso)
+- [Uso Básico](#uso-básico)
 - [Estructura del Repositorio](#estructura-del-repositorio)
-- [Documentación](#documentación)
-- [Control de Versiones con Git](#control-de-versiones-con-git)
+- [Documentación Técnica](#documentación-técnica)
+- [Git y GitHub](#git-y-github)
 - [Integración Continua](#integración-continua)
 - [Seguridad](#seguridad)
-- [Autor](#autor)
+
+## 📖 Descripción
+
+Este proyecto demuestra las mejores prácticas en desarrollo PHP profesional:
+- Documentación automática del código
+- Versionado con Git
+- Integración Continua con GitHub Actions
+- Validación automática de sintaxis
 
 ## ✨ Características
 
-- ✅ Aplicación web PHP completamente documentada
-- ✅ Código documentado con PHPDoc siguiendo estándares PSR-5
-- ✅ Clases y funciones auxiliares bien estructuradas
-- ✅ Control de versiones con Git y GitHub
-- ✅ Integración continua con GitHub Actions
-- ✅ Verificación automática de sintaxis PHP
-- ✅ Generación automática de documentación
-- ✅ Archivo .gitignore adecuadamente configurado
-- ✅ README.md con instrucciones completas
+- ✅ Código PHP documentado con PHPDoc
+- ✅ Clase `Usuario` con getters y setters
+- ✅ Funciones auxiliares (validación, sanitización)
+- ✅ Repositorio en GitHub con historial de commits
+- ✅ Workflow de CI/CD automático
+- ✅ Documentación HTML con phpDocumentor
+- ✅ .gitignore configurado correctamente
+- ✅ Sin datos sensibles en el repositorio
 
 ## 📦 Requisitos
 
-- **PHP**: 7.4 o superior
-- **Composer**: Para gestionar dependencias
-- **Git**: Para control de versiones
-- **GitHub**: Cuenta para alojar el repositorio
-
-### Requisitos opcionales (para generar documentación localmente)
-
-- **phpDocumentor**: 3.0 o superior
-- **Docker**: Para entornos de desarrollo aislados
+- **PHP**: 8.1 o superior
+- **Git**: 2.0 o superior
+- **Composer**: Para generar documentación (opcional)
 
 ## 🚀 Instalación
 
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/proyecto-php.git
-cd proyecto-php
+git clone https://github.com/Dbarrera19/DAW_RA6_DBN.git
+cd DAW_RA6_DBN
 ```
 
 ### 2. Instalar dependencias
@@ -402,5 +403,6 @@ Sí, en las configuraciones de GitHub. Es recomendable para proyectos en desarro
 ---
 
 **¿Necesitas ayuda?** Abre un issue en GitHub o consulta la documentación técnica en [docs/DOCUMENTACION.md](docs/DOCUMENTACION.md).
-#   T e s t  
+#   T e s t 
+ 
  
