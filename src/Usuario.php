@@ -81,7 +81,7 @@ class Usuario
      */
     public function getNombre(): string
     {
-        return $this->nombre
+        return $this->nombre;
     }
 
     /**
