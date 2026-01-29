@@ -402,3 +402,5 @@ Sí, en las configuraciones de GitHub. Es recomendable para proyectos en desarro
 ---
 
 **¿Necesitas ayuda?** Abre un issue en GitHub o consulta la documentación técnica en [docs/DOCUMENTACION.md](docs/DOCUMENTACION.md).
+#   T e s t  
+ 
