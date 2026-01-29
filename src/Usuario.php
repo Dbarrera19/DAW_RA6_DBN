@@ -71,7 +71,7 @@ class Usuario
      */
     public function getEdad(): int
     {
-        return $this->edad;
+        return $this->edad
     }
 
     /**
