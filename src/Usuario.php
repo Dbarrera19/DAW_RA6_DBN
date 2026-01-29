@@ -91,6 +91,6 @@ class Usuario
      */
     public function getApellidos(): string
     {
-        return $this->apellidos;
+        return $this->apellidos
     }
 }
