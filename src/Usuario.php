@@ -71,7 +71,7 @@ class Usuario
      */
     public function getEdad(): int
     {
-        return $this->edad;
+        return $this->edad
     }
 
     /**
@@ -94,3 +94,13 @@ class Usuario
         return $this->apellidos;
     }
 }
+
+
+#git add src/Usuario.php
+#git commit -m "feat: error en getEdad"
+#git push origin master
+
+
+#git add src/Usuario.php
+#git commit -m "fix: corregir error en getEdad"
+#git push origin master
