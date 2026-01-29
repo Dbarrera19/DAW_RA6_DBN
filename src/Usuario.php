@@ -61,7 +61,7 @@ class Usuario
      */
     public function getNombreCompleto(): string
     {
-        return $this->nombre . " " . $this->apellidos
+        return $this->nombre . " " . $this->apellidos;
     }
 
     /**
