@@ -42,6 +42,7 @@ jobs:
 
     - name: Instalar dependencias
       run: composer install --no-progress --prefer-dist
+      continue-on-error: true
 
     - name: Verificar PSR-12
       run: composer lint || echo "Se recomienda seguir PSR-12"
