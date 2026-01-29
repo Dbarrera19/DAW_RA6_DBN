@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación API - Proyecto DBN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            display: inline-block;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .class-item, .function-item {
+            background-color: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .class-item:hover, .function-item:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+        
+        .class-name, .function-name {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .description {
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .method-list {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .method {
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #764ba2;
+        }
+        
+        .method-signature {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin-bottom: 8px;
+        }
+        
+        .parameter {
+            background-color: #fff3cd;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        
+        .return {
+            background-color: #d1ecf1;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 3px solid #17a2b8;
+        }
+        
+        .example {
+            background-color: #e2e3e5;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        
+        .badge-class {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .badge-function {
+            background-color: #764ba2;
+            color: white;
+        }
+        
+        .badge-param {
+            background-color: #ffc107;
+            color: #333;
+        }
+        
+        .badge-return {
+            background-color: #17a2b8;
+            color: white;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        
+        .toc {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc li {
+            margin: 8px 0;
+        }
+        
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📚 Documentación API</h1>
+        <p>Proyecto DBN - Aplicación PHP Documentada</p>
+    </header>
+    
+    <nav>
+        <a href="#clases">Clases</a>
+        <a href="#funciones">Funciones</a>
+        <a href="#ejemplos">Ejemplos</a>
+        <a href="#notas">Notas</a>
+    </nav>
+    
+    <div class="container">
+        <!-- Tabla de Contenidos -->
+        <div class="toc">
+            <h3>📑 Tabla de Contenidos</h3>
+            <ul>
+                <li><a href="#clases">Clases</a>
+                    <ul>
+                        <li><a href="#clase-usuario">Clase Usuario</a></li>
+                    </ul>
+                </li>
+                <li><a href="#funciones">Funciones Auxiliares</a>
+                    <ul>
+                        <li><a href="#func-saludo">saludo()</a></li>
+                        <li><a href="#func-validaremail">validarEmail()</a></li>
+                        <li><a href="#func-sanitizar">sanitizar()</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Sección de Clases -->
+        <div class="section" id="clases">
+            <h2><span class="badge badge-class">CLASE</span> Clases</h2>
+            
+            <div class="class-item" id="clase-usuario">
+                <div class="class-name">🔶 Usuario</div>
+                <div class="description">
+                    Representa a un usuario de la aplicación web. Gestiona la información básica 
+                    de un usuario incluyendo nombre, apellidos y edad.
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <strong>Ubicación:</strong> <code>src/Usuario.php</code>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <strong>Propiedades:</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><code>private string $nombre</code> - Nombre del usuario</li>
+                        <li><code>private string $apellidos</code> - Apellidos del usuario</li>
+                        <li><code>private int $edad</code> - Edad del usuario en años</li>
+                    </ul>
+                </div>
+                
+                <div class="method-list">
+                    <strong>Métodos:</strong>
+                    
+                    <!-- Constructor -->
+                    <div class="method">
+                        <div class="method-signature">public function __construct(string $nombre, string $apellidos, int $edad)</div>
+                        <div class="description">Constructor de la clase Usuario</div>
+                        <div class="parameter">
+                            <strong><span class="badge badge-param">PARAM</span> $nombre</strong>
+                            <p>El nombre del usuario</p>
+                        </div>
+                        <div class="parameter">
+                            <strong><span class="badge badge-param">PARAM</span> $apellidos</strong>
+                            <p>Los apellidos del usuario</p>
+                        </div>
+                        <div class="parameter">
+                            <strong><span class="badge badge-param">PARAM</span> $edad</strong>
+                            <p>La edad del usuario</p>
+                        </div>
+                    </div>
+                    
+                    <!-- getNombreCompleto -->
+                    <div class="method">
+                        <div class="method-signature">public function getNombreCompleto(): string</div>
+                        <div class="description">Obtiene el nombre completo del usuario</div>
+                        <p style="margin-top: 10px;">Devuelve el nombre completo combinando el nombre y los apellidos del usuario.</p>
+                        <div class="return">
+                            <strong><span class="badge badge-return">RETURN</span> string</strong>
+                            <p>El nombre completo del usuario en formato "Nombre Apellidos"</p>
+                        </div>
+                        <div class="example">
+$usuario = new Usuario("Juan", "García López", 25);
+echo $usuario->getNombreCompleto(); // Salida: Juan García López
+                        </div>
+                    </div>
+                    
+                    <!-- getEdad -->
+                    <div class="method">
+                        <div class="method-signature">public function getEdad(): int</div>
+                        <div class="description">Obtiene la edad del usuario</div>
+                        <div class="return">
+                            <strong><span class="badge badge-return">RETURN</span> int</strong>
+                            <p>La edad del usuario en años</p>
+                        </div>
+                        <div class="example">
+$usuario = new Usuario("Juan", "García López", 25);
+echo $usuario->getEdad(); // Salida: 25
+                        </div>
+                    </div>
+                    
+                    <!-- getNombre -->
+                    <div class="method">
+                        <div class="method-signature">public function getNombre(): string</div>
+                        <div class="description">Obtiene el nombre del usuario</div>
+                        <div class="return">
+                            <strong><span class="badge badge-return">RETURN</span> string</strong>
+                            <p>El nombre del usuario</p>
+                        </div>
+                        <div class="example">
+$usuario = new Usuario("Juan", "García López", 25);
+echo $usuario->getNombre(); // Salida: Juan
+                        </div>
+                    </div>
+                    
+                    <!-- getApellidos -->
+                    <div class="method">
+                        <div class="method-signature">public function getApellidos(): string</div>
+                        <div class="description">Obtiene los apellidos del usuario</div>
+                        <div class="return">
+                            <strong><span class="badge badge-return">RETURN</span> string</strong>
+                            <p>Los apellidos del usuario</p>
+                        </div>
+                        <div class="example">
+$usuario = new Usuario("Juan", "García López", 25);
+echo $usuario->getApellidos(); // Salida: García López
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Funciones -->
+        <div class="section" id="funciones">
+            <h2><span class="badge badge-function">FUNCIÓN</span> Funciones Auxiliares</h2>
+            
+            <!-- saludo() -->
+            <div class="function-item" id="func-saludo">
+                <div class="function-name">🎯 saludo()</div>
+                <div class="description">Devuelve un saludo genérico</div>
+                <div style="margin-top: 15px;">
+                    <p>Genera un mensaje de bienvenida para los usuarios de la aplicación.</p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <strong>Ubicación:</strong> <code>src/utilidades.php</code>
+                </div>
+                <div class="method-signature">function saludo(): string</div>
+                <div class="return" style="margin-top: 15px;">
+                    <strong><span class="badge badge-return">RETURN</span> string</strong>
+                    <p>Un mensaje de saludo y bienvenida</p>
+                </div>
+                <div class="example">
+$saludo = saludo();
+echo $saludo; // Salida: Bienvenido a la aplicación documentada en PHP
+                </div>
+            </div>
+            
+            <!-- validarEmail() -->
+            <div class="function-item" id="func-validaremail">
+                <div class="function-name">✉️ validarEmail()</div>
+                <div class="description">Valida si un email tiene un formato correcto</div>
+                <div style="margin-top: 15px;">
+                    <p>Verifica si el email cumple con un formato básico de email válido usando filtros de PHP.</p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <strong>Ubicación:</strong> <code>src/utilidades.php</code>
+                </div>
+                <div class="method-signature">function validarEmail(string $email): bool</div>
+                <div class="parameter" style="margin-top: 15px;">
+                    <strong><span class="badge badge-param">PARAM</span> $email</strong>
+                    <p>El email a validar</p>
+                </div>
+                <div class="return">
+                    <strong><span class="badge badge-return">RETURN</span> bool</strong>
+                    <p>true si el email es válido, false en caso contrario</p>
+                </div>
+                <div class="example">
+if (validarEmail("usuario@example.com")) {
+    echo "Email válido";
+} else {
+    echo "Email inválido";
+}
+                </div>
+            </div>
+            
+            <!-- sanitizar() -->
+            <div class="function-item" id="func-sanitizar">
+                <div class="function-name">🛡️ sanitizar()</div>
+                <div class="description">Sanitiza una cadena de texto removiendo caracteres especiales</div>
+                <div style="margin-top: 15px;">
+                    <p>Convierte caracteres especiales HTML en entidades, previniendo ataques XSS.</p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <strong>Ubicación:</strong> <code>src/utilidades.php</code>
+                </div>
+                <div class="method-signature">function sanitizar(string $texto): string</div>
+                <div class="parameter" style="margin-top: 15px;">
+                    <strong><span class="badge badge-param">PARAM</span> $texto</strong>
+                    <p>El texto a sanitizar</p>
+                </div>
+                <div class="return">
+                    <strong><span class="badge badge-return">RETURN</span> string</strong>
+                    <p>El texto sanitizado</p>
+                </div>
+                <div class="example">
+$entrada = "&lt;script&gt;alert('xss')&lt;/script&gt;";
+$limpio = sanitizar($entrada);
+echo $limpio; // &amp;lt;script&amp;gt;alert('xss')&amp;lt;/script&amp;gt;
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Ejemplos -->
+        <div class="section" id="ejemplos">
+            <h2>💡 Ejemplos de Uso</h2>
+            
+            <h3>Usando la clase Usuario</h3>
+            <div class="example">
+&lt;?php
+require 'src/Usuario.php';
+
+// Crear una instancia
+$usuario = new Usuario("Ana", "Martínez García", 28);
+
+// Usar los métodos
+echo $usuario->getNombreCompleto(); // Ana Martínez García
+echo $usuario->getNombre();         // Ana
+echo $usuario->getApellidos();      // Martínez García
+echo $usuario->getEdad();           // 28
+?&gt;
+            </div>
+            
+            <h3>Usando funciones auxiliares</h3>
+            <div class="example">
+&lt;?php
+require 'src/utilidades.php';
+
+// Saludo de bienvenida
+echo saludo(); // Bienvenido a la aplicación documentada en PHP
+
+// Validar email
+if (validarEmail("usuario@example.com")) {
+    echo "Email válido";
+}
+
+// Sanitizar entrada para seguridad
+$entrada = $_GET['nombre'] ?? '';
+$segura = sanitizar($entrada);
+echo $segura;
+?&gt;
+            </div>
+        </div>
+        
+        <!-- Sección de Notas -->
+        <div class="section" id="notas">
+            <h2>📝 Notas Importantes</h2>
+            
+            <h3>Estándares de Codificación</h3>
+            <ul style="margin-left: 20px;">
+                <li><strong>PHPDoc:</strong> Todo el código está documentado siguiendo PSR-5</li>
+                <li><strong>Type Hints:</strong> Se utilizan type hints para mayor seguridad</li>
+                <li><strong>Visibilidad:</strong> Se especifica visibilidad (private, public) en propiedades y métodos</li>
+            </ul>
+            
+            <h3>Seguridad</h3>
+            <ul style="margin-left: 20px;">
+                <li>La función <code>sanitizar()</code> previene ataques XSS</li>
+                <li>La función <code>validarEmail()</code> valida entrada de usuario</li>
+                <li>Se usan type hints para prevenir errores de tipo</li>
+            </ul>
+            
+            <h3>Información del Proyecto</h3>
+            <ul style="margin-left: 20px;">
+                <li><strong>Versión:</strong> 1.0.0</li>
+                <li><strong>PHP requerido:</strong> 8.1+</li>
+                <li><strong>Licencia:</strong> MIT</li>
+                <li><strong>Repositorio:</strong> https://github.com/Dbarrera19/DAW_RA6_DBN</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Proyecto DBN - Documentación generada con phpDocumentor</p>
+        <p>Alumno: Daniel Barrera | Curso: DAW (Desarrollo de Aplicaciones Web)</p>
+    </footer>
+</body>
+</html>
