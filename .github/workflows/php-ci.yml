@@ -24,7 +24,6 @@ jobs:
     - name: Validar sintaxis PHP
       run: |
         find . -name "*.php" -type f ! -path "./vendor/*" -print0 | xargs -0 -n1 php -l
-      continue-on-error: true
 
   code-quality:
     name: Análisis de calidad del código
